@@ -1,3 +1,4 @@
+// This function allows us to check if we have an error, and if we do an error message wll be displayed
 function errorHandling(err, req, res, next){
     if(err || res.statusCode >= 400){
         res.json({
@@ -9,5 +10,6 @@ function errorHandling(err, req, res, next){
     }
 }
 export{
-    errorHandling
+    errorHandling,
+    verifyAToken
 }

@@ -1,7 +1,9 @@
+// Need only 2 functons
 import { config } from "dotenv";
 config()
-import {sign, verify} from "jsonwebtoken";
+import {sign /* Allowes us to create a token */, verify /* Allowes us to verify a token */} from "jsonwebtoken";
 
+// First function is the createToken funcion
 function createToken(user) {
     return sign({
         emailAdd: user.emailAdd,
@@ -13,7 +15,8 @@ function createToken(user) {
     }
 }
 
-function verifyAToken(req, res, next) {
+// Second function is the verifyAToken function
+function verifyAToken(req, res, next /* Always takes these 3 arguments */) {
     // Retrieve a token from the browser
     const token = req?.headers['Authorization']
     if (token) {
