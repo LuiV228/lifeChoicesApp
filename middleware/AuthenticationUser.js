@@ -1,7 +1,8 @@
 // Need only 2 functons
 import { config } from "dotenv";
 config()
-import {sign /* Allowes us to create a token */, verify /* Allowes us to verify a token */} from "jsonwebtoken";
+import jwt from "jsonwebtoken";
+const {sign, verify} = jwt
 
 // First function is the createToken funcion
 function createToken(user) {

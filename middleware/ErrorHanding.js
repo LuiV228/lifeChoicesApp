@@ -11,5 +11,4 @@ function errorHandling(err, req, res, next){
 }
 export{
     errorHandling,
-    verifyAToken
 }
