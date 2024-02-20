@@ -3,9 +3,9 @@ import { productRouter } from "./controller/ProductController.js";
 import cookieParser from "cookie-parser";
 import { errorHandling } from "./middleware/ErrorHanding.js";
 import path from "path";
-import { config } from "dotenv";
+// import { config } from "dotenv";
 import cors from 'cors';
-config();
+// config();
 
 const app = express();
 const port = +process.env.PORT || 4000;
@@ -28,12 +28,12 @@ app.use(
   cookieParser(),
   cors()
 );
-app.get("^$|lifechoices", (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, './static/index.html'));
+app.get("^/$|/lifechoices", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "./static/index.html"));
 });
-app.use('/users', userRouter)
-app.use('/products', productRouter)
-app.use(errorHandling)
+app.use("/users", userRouter);
+app.use("/products", productRouter);
+app.use(errorHandling);
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-})
+  console.log(`Server is running on port ${port}`);
+});

@@ -1,9 +1,11 @@
 import { createPool } from "mysql";
 // import { config } from "dotenv";
-// config();
-import "dotenv/config"
+import { config } from "dotenv"
+config();
+// console.log( process.env.DB_HOST, process.env.DB_Name, process.env.DB_UserName, process.env.DB_UserPass )
+
 let connection = createPool({
-  DB_HOST: process.env.DB_HOST,
+  host: process.env.DB_HOST,
   database: process.env.DB_Name,
   user: process.env.DB_UserName,
   password: process.env.DB_UserPass,

@@ -42,6 +42,20 @@ class Products{
             })
         })
     }
+    updateProduct(req, res) {
+        const qry =`
+        UPDATE Product,
+        WHERE 
+        SET ?;
+        `
+        db.query(qry, [req.body], (err)=>{
+            if (err) throw err
+            res.json({
+                status: res.statusCode,
+                msg: 'Product has been updated'
+            })
+        })
+    }
 }
 
 export { Products };
